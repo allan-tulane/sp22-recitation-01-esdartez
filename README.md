@@ -46,13 +46,15 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 
 - [ ] 3. Write at least two additional test cases in `test_binary_search` and confirm they pass.
 
-- [ ] 4. Describe the worst case input value of `key` for `linear_search`? for `binary_search`? 
+- [ ] 4. Describe the worst case input value of `key` for `linear_search`? for `binary_search`?
+  **The worst case input value for linear search would be equal to the last value, sizeof(array)
+  The worst case input value for binary search would be equal to one of the extreme values of the       list, either array[0] or sizeof(array).**
 
-**TODO: your answer goes here**
 
 - [ ] 5. Describe the best case input value of `key` for `linear_search`? for `binary_search`? 
+ ** The best case for linear search is the first value in the list: array[0]
+  The best case for binary search is the middle value in the list: sizeof(array)//2**
 
-**TODO: your answer goes here**
 
 - [ ] 6. Complete the `time_search` function to compute the running time of a search function. Note that this is an example of a "higher order" function, since one of its parameters is another function.
 
