@@ -41,11 +41,33 @@ def test_binary_search():
 	assert binary_search([1,2,3,4,5], 6) == -1
 	assert binary_search([1,2,3,4,5], 0) == -1
 	assert binary_search([1,2,3,4,5], 3) == 2
+def makeList(n1,n2):
+	if n1 == n2:
+		return n1
+	else:
+		res = []
+		while n1<=n2:
+			res.append(n1)
+			n1+=1
+		return res
 
 def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
-	t= time.time() * 1000
-	
-	ms = time.time() * 1000
+	mylist0 = makeList(0,sizes[0])
+	mylist1 = makeList(0,sizes[1])
+	mylist3 = makeList(0,sizes[2])
+	mylistmax = makeList(0,sizes[3])
+
+
+	n=["Binary 1e1:",time_search(binary_search,mylist0,-1),"Linear Search 1e1:", time_search(linear_search,mylist0,-1),"Binary search 1e2", time_search(binary_search,mylist1,-1),"Linear search 1e2", time_search(linear_search,mylist1,-1)]
+	n.append("Binary search 1e3:")
+	n.append(time_search(binary_search,mylist3,-1))
+	n.append("Linear search 1e3:")
+	n.append(time_search(binary_search,mylist3,-1))
+	n.append("Binary search 1e7:")
+	n.append(time_search(binary_search,mylistmax,-1))
+	n.append("Linear search 1e7:")
+	n.append(time_search(linear_search,mylistmax,-1))
+	return n
 
 
 def print_results(results):
@@ -58,3 +80,5 @@ def test_compare_search():
 	assert res[1][0] == 100
 	assert res[0][1] < 1
 	assert res[1][1] < 1
+
+print(compare_search(sizes=[10,100,1000,10000000]))
